@@ -67,15 +67,10 @@ public class Easy {
     public String longestCommonPrefix(String[] strs) {
 
         String output ="";
-        int minCount = 99999999;
         String item = "";
         for(int i=0; i< strs.length;i++){
-            if(strs[i].length()<minCount) {
-                item = strs[i];
-                minCount = strs[i].length();
-            }
+            if(strs[i].length()<item.length())  item = strs[i];
         }
-        System.out.println("minCount: "+minCount+" item: "+item);
         for(int i=0; i< item.length(); i++){
             String subStr = item.substring(0,item.length()-i);
             System.out.println("subStr: "+subStr);
