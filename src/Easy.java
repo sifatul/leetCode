@@ -23,4 +23,45 @@ public class Easy {
         }
         return true;
     }
+    public int romanToInt(String s) {
+
+        int prev = 0;
+        int sum = 0;
+        for (int i= s.length()-1; i>=0; i--){
+            int currentVal = romanCharToInt(s.charAt(i));
+            if(currentVal<prev) sum -=currentVal;
+            else sum +=currentVal;
+            prev = currentVal;
+
+        }
+        return sum;
+    }
+    public int romanCharToInt(char c){
+        int output = 0;
+        switch (c){
+            case 'I':
+                output = 1;
+                break;
+            case 'V':
+                output = 5;
+                break;
+            case 'X':
+                output = 10;
+                break;
+            case 'L':
+                output = 50;
+                break;
+            case 'C':
+                output = 100;
+                break;
+            case 'D':
+                output = 500;
+                break;
+             case 'M':
+                output = 1000;
+                break;
+
+        }
+        return output;
+    }
 }
