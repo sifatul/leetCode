@@ -1,53 +1,46 @@
+import java.util.List;
+
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         /*
-         * 1. Generate numbers from two ListNode in reverse order
+         * 1. Iterate the two ListNode
          * 2. Sum the numbers
          * 3. return as ListNode
          * */
 
-        int number1 = 0;
-        int iterator = 1;
-        while (l1 != null) {
-            number1 = l1.val * iterator + number1;
-            iterator *= 10;
-            l1 = l1.next;
-        }
-
-        //generate number from l2
-
-        int number2 = 0;
-        iterator = 1;
-        while (l2 != null) {
-            number2 += l2.val * iterator;
-            iterator *= 10;
-            l2 = l2.next;
-        }
-        System.out.println("number1 : " + number1 + " number2: " + number2);
-
-        int sum = number1 + number2;
-        System.out.println("sum: " + sum);
-
-        /* return the sum as listNode but in reverse order */
-
-        if (sum == 0) return new ListNode(sum);
-
-        int divisor = sum / 10;
-        int remainder = sum % 10;
-        ListNode Head = new ListNode(remainder);
-//        System.out.println("output: " + remainder);
+        ListNode Head = new ListNode();
         ListNode output = Head;
-        sum = divisor;
-        while (sum != 0) {
-            divisor = sum / 10;
-            remainder = sum % 10;
-            output.next = new ListNode(remainder);
-            output =  output.next;
-            sum = divisor;
-//            System.out.println("output: " + remainder);
+        int carry = 0;
 
+        while(l1!=null || l2!=null){
+            int num1 =0;
+            int num2 =0;
+            if(l1 != null) {
+                num1 = l1.val;
+                l1= l1.next;
+            }
+            if(l2 != null) {
+                num2 = l2.val;
+                l2= l2.next;
+            }
+            int sum = num1 + num2+carry;
+
+            output.val = sum % 10;
+            carry = sum / 10;
+
+            if(l1 !=null || l2!=null){
+                output.next = new ListNode(carry);
+                output = output.next;
+            }
         }
+        if(carry>0){
+            output.next=new ListNode(carry);
+        }
+
         return Head;
+
+
+
     }
 
     public ListNode leetCodeSolution(ListNode l1, ListNode l2) {
