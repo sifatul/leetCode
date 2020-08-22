@@ -18,7 +18,7 @@ public class Main {
 
 
         Easy easy = new Easy();
-        int output = easy.reverse(-120);
+        Boolean output = easy.isValidParanthesis(  "{[]}");
         System.out.println(output);
     }
 }
