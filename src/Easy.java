@@ -64,4 +64,79 @@ public class Easy {
         }
         return output;
     }
+    public String longestCommonPrefix(String[] strs) {
+
+        String output ="";
+        int minCount = 99999999;
+        String item = "";
+        for(int i=0; i< strs.length;i++){
+            if(strs[i].length()<minCount) {
+                item = strs[i];
+                minCount = strs[i].length();
+            }
+        }
+        System.out.println("minCount: "+minCount+" item: "+item);
+        for(int i=0; i< item.length(); i++){
+            String subStr = item.substring(0,item.length()-i);
+            System.out.println("subStr: "+subStr);
+
+            boolean flag = false;
+            for(int j=0; j<strs.length; j++){
+                System.out.println(subStr);
+
+                if(strs[j].startsWith(subStr)== false) {
+                    flag = false;
+                    break;
+                }
+                flag = true;
+            }
+            if(flag == true && subStr.length()>output.length()) output = subStr;
+        }
+        return output;
+    }
+    public String longestCommonPrefix2(String[] strs) {
+        //matching in all possible combinations
+
+        String output = "";
+        int minCount = 99999999;
+        String item = "";
+        for(int i=0; i< strs.length;i++){
+            if(strs[i].length()<minCount) {
+                item = strs[i];
+                minCount = strs[i].length();
+            }
+        }
+        System.out.println("item: "+item+" coutn "+minCount);
+        if(item.length() ==0) return item;
+
+         for(int i=0;i<item.length();i++){
+
+            for(int j=i+1;j<=item.length();j++){
+                 String subStr = item.substring(i,j);
+
+                String temp = "";
+                for(int idx = 0; idx< strs.length; idx ++){
+                    if(strs[idx].equals(temp)) continue;
+                     int indexOfSubStr = strs[idx].indexOf(subStr);
+                     if(indexOfSubStr<0) {
+                         temp = "";
+                         break;
+                     }
+                     if(subStr.length()>temp.length()){
+                         temp = subStr;
+                     }
+                     System.out.println("idx: "+idx+" indexOfSubStr:"+indexOfSubStr+" substr: "+subStr+" output: "+output);
+
+                }
+                if(temp.length()>output.length()){
+
+                    output = temp;
+                    System.out.println("output "+output+" temp: "+temp);
+
+                }
+            }
+        }
+
+        return output;
+    }
 }
