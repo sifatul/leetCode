@@ -14,4 +14,13 @@ public class Easy {
 
         return output > Integer.MAX_VALUE || output<Integer.MIN_VALUE ? 0 : (int)output;
     }
+    public boolean isPalindrome(int x) {
+        if(x<0) return false;
+        char[] numArr = (x+"").toCharArray();
+        int right = numArr.length-1;
+        for(int i=0; i<= right;i++, right--){
+            if(numArr[i] != numArr[numArr.length-i-1]) return false;
+        }
+        return true;
+    }
 }
