@@ -230,7 +230,23 @@ public class Easy {
         }
         return output;
     }
+    public int[][] flipAndInvertImage(int[][] A) {
 
-
-
+        for(int i=0;i<A.length;i++) {
+            int rowLength = A[i].length;
+            for(int j=0; j<rowLength/2;j++) {
+                int temp = A[i][j];
+                A[i][j] = A[i][rowLength-1-j] == 0? 1:0;
+                A[i][rowLength-1-j] = temp == 0? 1:0;
+            }
+            if(rowLength%2==1){
+                A[i][rowLength/2] = A[i][rowLength/2] ==0?1:0;
+            }
+        }
+        return A;
+    }
 }
+
+
+
+
