@@ -23,15 +23,12 @@ public class ListNode {
         return ;
     }
     public ListNode populateList(int [] arr){
-        ListNode Head = new ListNode();
-        ListNode newList = new ListNode();
-        if(arr.length<1){
-            return Head;
-        }
+        if(arr == null || arr.length ==0) return null;
 
-        Head.val = arr[0];
-        Head.next = newList;
-        for(int i=1; i<arr.length; i++){
+        ListNode Head = new ListNode();
+        ListNode newList = Head;
+
+        for(int i=0; i<arr.length; i++){
             newList.val = arr[i];
             if(i<arr.length-1){
                 newList.next = new ListNode();

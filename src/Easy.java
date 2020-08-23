@@ -110,4 +110,66 @@ public class Easy {
 
         return stack.size()>0? false:true;
     }
+    public ListNode mergeTwoSortedLists(ListNode l1, ListNode l2) {
+
+        if(l1==null && l2==null) return null;
+        ListNode Head = new ListNode();
+        ListNode output = Head;
+
+        while(l1!=null || l2!=null){
+            int num1 = l1!=null? l1.val: -9999;
+            int num2 = l2!=null? l2.val: -9999;
+
+            if(num1 !=-9999 && num2!=-9999){
+               if(num1<num2){
+                   output.val = num1;
+                   l1 = l1.next;
+               }else{
+                   output.val = num2;
+                   l2 = l2.next;
+               }
+            }else{
+                if(num1 !=-9999){
+                    output.val = num1;
+                    l1 = l1.next;
+                }
+                if(num2 !=-9999){
+                    output.val = num2;
+                    l2 = l2.next;
+                }
+            }
+
+            if(l1!=null || l2!=null){
+                output.next = new ListNode();
+                output = output.next;
+            }
+        }
+        return Head;
+    }
+    public int removeDuplicatesFromSortedArray(int[] nums) {
+
+        if(nums == null || nums.length == 0) return 0;
+
+        int prev = nums[0];
+        int currentIdx = 1;
+        for(int i =1;i< nums.length;i++){
+            System.out.println();
+            if(prev != nums[i]){
+                nums[currentIdx] = nums[i];
+                prev = nums [i];
+                currentIdx++;
+            }
+        }
+        printArray(nums);
+        return currentIdx;
+
+    }
+
+
+    public void printArray(int [] arr){
+        for(int i =0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
 }

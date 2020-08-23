@@ -12,13 +12,10 @@ public class Main {
 //        ListNode l1 = listNode.arrToListNode(new int[]{9});
 //        ListNode l2 = listNode.arrToListNode(new int[]{1,9,9,9,9,9,9,9,9,9});
 //
-//        AddTwoNumbers addTwo = new AddTwoNumbers();
-//        ListNode output = addTwo.addTwoNumbers(l1, l2);
-//        listNode.print(output);
-
 
         Easy easy = new Easy();
-        Boolean output = easy.isValidParanthesis(  "{[]}");
+        int output = easy.removeDuplicatesFromSortedArray( new int[]{0,0,1,1,2});
+//        listNode.print(output);
         System.out.println(output);
     }
 }
