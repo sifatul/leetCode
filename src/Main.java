@@ -14,7 +14,7 @@ public class Main {
 //
 
         Easy easy = new Easy();
-        int output = easy.removeDuplicatesFromSortedArray( new int[]{0,0,1,1,2});
+        int output = easy.removeElement( new int[]{0,1,2,2,3,0,4,2},2);
 //        listNode.print(output);
         System.out.println(output);
     }

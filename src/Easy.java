@@ -1,6 +1,8 @@
 import java.util.Stack;
 
 public class Easy {
+    Util util = new Util();
+
     public int reverse(int x) {
 
         int isNegative = x<0?-1:1;
@@ -160,16 +162,25 @@ public class Easy {
                 currentIdx++;
             }
         }
-        printArray(nums);
         return currentIdx;
 
     }
+    public int removeElement(int[] nums, int val) {
 
+        if(nums == null || nums.length == 0) return 0;
+        int currentIdx = 0;
+        for(int i =0; i<nums.length; i++){
+            System.out.println("current val: "+ nums[i]);
 
-    public void printArray(int [] arr){
-        for(int i =0; i<arr.length; i++){
-            System.out.print(arr[i]+" ");
+            if(nums[i] != val){
+                nums[currentIdx] = nums[i];
+                currentIdx ++;
+            }
         }
-        System.out.println();
+        util.printArray(nums);
+
+        return currentIdx;
     }
+
+
 }
