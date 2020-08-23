@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class Easy {
@@ -181,6 +183,54 @@ public class Easy {
 
         return currentIdx;
     }
+    public int strStr(String haystack, String needle) {
+        if(needle.length() == 0 ) return 0;
+        if(haystack.length()==0) return -1;
+
+        return haystack.indexOf(needle);
+
+    }
+    public int searchInsert(int[] nums, int target) {
+
+        int output = -1;
+        for(int i=0;i< nums.length;i++){
+            if(nums[i] == target){
+                output = i;
+            } else if(nums[i]>target && output ==-1){
+                output = i>0? i:0;
+            }
+        }
+        if(output == -1) output = nums.length;
+        return output;
+    }
+    public String countAndSay(int n) {
+
+        if(n==0) return "";
+        String output = "1";
+
+        for(int i=2; i<=n;i++){
+            String result="";
+            int counter = 1;
+            char prev = output.charAt(0);
+            for(int j=1; j<output.length();j++){
+                char c = output.charAt(j);
+                if(c == prev){
+                    counter ++;
+                }else{
+                    System.out.println("1. char : "+ prev +" counter : "+counter);
+                    result += counter+String.valueOf(prev);
+                    System.out.println("1.result: "+result);
+                    counter =1;
+                }
+                prev = c;
+            }
+            System.out.println("2. char : "+ prev +" counter : "+counter);
+            result += counter+String.valueOf(prev);
+            output = result;
+        }
+        return output;
+    }
+
 
 
 }
