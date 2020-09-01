@@ -276,6 +276,26 @@ public class Easy {
 
         return output;
     }
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int idx1 = m-1, idx2 = n-1;
+        int counter = 1;
+        while(idx1>=0 || idx2>=0){
+            int num1 = idx1>=0? nums1[idx1]:Integer.MIN_VALUE;
+            int num2 = idx2>=0? nums2[idx2]:Integer.MIN_VALUE;
+            System.out.println("num1: "+num1+ "num2: "+num2);
+
+            if(num1>num2) idx1 --;
+            else idx2 --;
+
+            int max  = Math.max(num1,num2);
+            nums1[m+n-counter] = max;
+            counter += 1;
+
+            System.out.println("idx1: "+idx1+ "idx2: "+idx2+" max:"+max);
+        }
+        util.printArray(nums1);
+    }
+
 }
 
 
