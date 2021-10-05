@@ -4,7 +4,8 @@
 
 | Problem name  | language | Solution |
 | ------------- | ------------- | ------------- |
-| Add two numbers  | JAVA  | [Link to Header](#the-header)
+| Add two numbers  | JAVA  | [Link to solution](#the-header)
+| Add two numbers  | Javascript  | [Link to Header](#the-solution)
 
 
 # How to contribute
