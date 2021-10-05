@@ -16,7 +16,7 @@
 
 
 # How to contribute
-Follow the directory 
+Follow the following rule to create directory 
 
 
 - programming language [Java]
