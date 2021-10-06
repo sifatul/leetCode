@@ -20,6 +20,7 @@ Follow the following rule to create directory
 
 
 - programming language [Java]
-  - problem name[ add-two-numbers.java ]
-  - helpers (if needed)
-  - tests (if you may)
+  - difficulty [easy]
+    - problem name[ add-two-numbers.java ]
+    - helpers (if needed)
+    - tests (if you may)
