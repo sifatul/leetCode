@@ -1,9 +1,9 @@
-# Nested Loop
+# Brute force
 
  
 Time  | Space
 ----- | ------
-O(n^2) | O(n)
+O(n^2) | O(1)
 
 
 compare each item `arr[i]` with rest of the items in the arr `arr[j]` and check whether total value is achieved (`arr[i] + arr[j] == total`).
@@ -16,7 +16,7 @@ target = 22
 
 round 1: compare 2, with 7,11,15 and compare for total
 
-round 2: compare 7, with 11,15 and check for total. While comparing `7+15` is `22` . So return [i,j];
+round 2: compare 7, with 11,15 and check for total. While comparing `7+15` is `22` . So return `[i,j]`;
 
 
 # Store in a list
@@ -42,3 +42,4 @@ round 1: compare `2`, and check with store, which is empty (`[]`). So item does 
 round 2: compare `7`, and check with store (`[11]`). Item (`7`) does not exists in store, add the difference `13-7` (`[11, 6]`)
 
 round 3: compare `11`, and check with store (`[11, 6]`). Item (`11`) *exists* in store; so return index of `11` in store and current item index (`2`)
+
