@@ -29,4 +29,25 @@ if(count>1){
 }
 ```
  
+ # Iterative2
+
  
+Time  | Space
+----- | ------
+O(n) | O(n)
+
+99% same like Iterative technique(above). There differences are above technique output list refered to the input list 
+` outputHead.next = head; `
+and skipped if duplicate number is found.
+
+
+This technique adds number to the outputListNode only when its a unique number. Kinda opposite technique.
+
+```
+if (map.get(head.val) == 1) {
+    curr.next = head;
+    curr = curr.next;
+}
+```
+
+last item might be a duplicate and second last might have been refering to it. so connection needs to be deleted before returning output `curr.next = null;`
